@@ -1,8 +1,7 @@
-import 'package:flutter/foundation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-@immutable
+@JsonSerializable()
 class Product {
-
   const Product({
     required this.id,
     required this.title,
@@ -30,7 +29,7 @@ class Product {
     image: json['image'].toString(),
     rating: Rating.fromJson(json['rating'] as Map<String, dynamic>)
   );
-  
+
   Map<String, dynamic> toJson() => {
     'id': id,
     'title': title,
@@ -41,6 +40,7 @@ class Product {
     'rating': rating.toJson()
   };
 
+/*
   Product clone() => Product(
     id: id,
     title: title,
@@ -76,11 +76,11 @@ class Product {
 
   @override
   int get hashCode => id.hashCode ^ title.hashCode ^ price.hashCode ^ description.hashCode ^ category.hashCode ^ image.hashCode ^ rating.hashCode;
+  */
 }
 
-@immutable
+@JsonSerializable()
 class Rating {
-
   const Rating({
     required this.rate,
     required this.count,
@@ -93,11 +93,13 @@ class Rating {
     rate: (json['rate'] as num).toDouble(),
     count: json['count'] as int
   );
-  
+
   Map<String, dynamic> toJson() => {
     'rate': rate,
     'count': count
   };
+
+  /*
 
   Rating clone() => Rating(
     rate: rate,
@@ -119,4 +121,5 @@ class Rating {
 
   @override
   int get hashCode => rate.hashCode ^ count.hashCode;
+  */
 }

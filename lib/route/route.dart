@@ -19,7 +19,7 @@ class RouteManager {
     GetPage(name: initial, page: () => const InitialScreen(), children: [
       GetPage(
         name: product,
-        page: () => const ProductScreen(),
+        page: () => ProductScreen(),
       ),
       GetPage(
         name: cart,

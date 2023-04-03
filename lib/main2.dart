@@ -3,7 +3,8 @@ import 'dart:convert' as convert;
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:sample_flutter/models/index.dart';
+
+import 'models/product.dart';
 
 void main() {
   runApp(const MyApp());
@@ -90,8 +91,8 @@ class _MyHomePageState extends State<MyHomePage> {
     var response = await http.get(url);
     if (response.statusCode == 200) {
       List<Product> productList = List<Product>.from(convert
-          .jsonDecode(response.body)
-          .map((dynamic) => Product.fromJson(dynamic)));
+          .jsonDecode(response.body));
+          //.map((dynamic) => Product.fromJson(dynamic)));
     } else {}
   }
 

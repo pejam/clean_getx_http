@@ -2,9 +2,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'di.dart';
 import 'route/route.dart';
 
 Future<void> main() async {
+  await init();
   runApp(const MyApp());
 }
 
